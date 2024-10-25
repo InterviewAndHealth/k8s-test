@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: service-3
+  labels:
+    app: service-3
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: service-3
+  template:
+    metadata:
+      labels:
+        app: service-3
+    spec:
+      containers:
+      - name: service-3
+        image: gopalsaraf/service3
+        ports:
+        - containerPort: 8000
+        env:
+        - name: SECRET
+          valueFrom:
+            secretKeyRef:
+              name: service-3
+              key: secret
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: service-3
+spec:
+  selector:
+    app: service-3
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8000
