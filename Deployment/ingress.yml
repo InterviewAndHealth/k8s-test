@@ -8,8 +8,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: myapp.com
-    http:
+  - http:
       paths:
       - path: /
         pathType: ImplementationSpecific
@@ -29,8 +28,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: myapp.com
-    http:
+  - http:
       paths:
       - path: /service-2(/|$)(.*)
         pathType: ImplementationSpecific
