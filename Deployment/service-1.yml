@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: service-1
-        image: gopalsaraf/service1
+        image: ghcr.io/interviewandhealth/k8s-test/service-1
         ports:
         - containerPort: 8000
         env:
